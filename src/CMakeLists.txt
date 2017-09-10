@@ -213,7 +213,7 @@ if(ENABLE_HPACK_TOOLS)
     RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}")
 endif()
 
-#if(ENABLE_ASIO_LIB)
+if(ENABLE_ASIO_LIB)
   message("ENABLE_ASIO_LIB set!!!")
   set(NGHTTP2_ASIO_SOURCES
     util.cc http2.cc
@@ -266,4 +266,4 @@ endif()
 
   install(FILES "${CMAKE_CURRENT_BINARY_DIR}/libnghttp2_asio.pc"
     DESTINATION "${CMAKE_INSTALL_LIBDIR}/pkgconfig")
-#endif()
+endif()

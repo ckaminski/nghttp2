@@ -29,8 +29,8 @@ include("cmake/HunterGate.cmake")
 HunterGate(
     URL "https://github.com/ruslo/hunter/archive/v0.19.80.tar.gz"
     SHA1 "4b72d50fef98189bad4bb098f53bc8893cb46519"
+    LOCAL
 )
-
 project(nghttp2 VERSION 1.25.0)
 
 hunter_add_package(Boost COMPONENTS system thread) 
@@ -49,7 +49,7 @@ set(LT_CURRENT  28)
 set(LT_REVISION 0)
 set(LT_AGE      14)
 
-set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH};${CMAKE_CURRENT_SOURCE_DIR}/cmake" )
 include(Version)
 
 math(EXPR LT_SOVERSION "${LT_CURRENT} - ${LT_AGE}")
