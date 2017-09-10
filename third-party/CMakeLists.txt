@@ -1,4 +1,5 @@
 if(ENABLE_THIRD_PARTY)
+  message("Third party enabled!!!")
   set(LIBHTTP_PARSER_SOURCES
     http-parser/http_parser.c
   )

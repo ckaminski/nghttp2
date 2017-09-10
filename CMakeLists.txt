@@ -24,7 +24,24 @@
 
 cmake_minimum_required(VERSION 3.0)
 # XXX using 1.8.90 instead of 1.9.0-DEV
+
+include("cmake/HunterGate.cmake")
+HunterGate(
+    URL "https://github.com/ruslo/hunter/archive/v0.19.80.tar.gz"
+    SHA1 "4b72d50fef98189bad4bb098f53bc8893cb46519"
+)
+
 project(nghttp2 VERSION 1.25.0)
+
+hunter_add_package(Boost COMPONENTS system thread) 
+hunter_add_package(libxml2) 
+hunter_add_package(ZLIB) 
+hunter_add_package(pthread-stubs)
+
+set(ENABLE_LIB_ONLY ON FORCE)
+set(ENABLE_ASIO_LIB ON FORCE)
+set(ENABLE_THIRD_PARY 1 )
+
 
 # See versioning rule:
 #  http://www.gnu.org/software/libtool/manual/html_node/Updating-version-info.html
@@ -223,6 +240,11 @@ set(HAVE_SPDYLAY    ${SPDYLAY_FOUND})
 
 if(ENABLE_ASIO_LIB)
   find_package(Boost 1.54.0 REQUIRED system thread)
+
+  set ( BOOST_SYSTEM_LIBRARY Boost::system ) 
+  set ( BOOST_THREAD_LIBRARY Boost::thread ) 
+  set ( Boost_LIBRARIES  Boost::system  Boost::thread ) 
+
 endif()
 
 # The nghttp, nghttpd and nghttpx under src depend on zlib, OpenSSL and libev
