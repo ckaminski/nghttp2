@@ -38,10 +38,6 @@ hunter_add_package(libxml2)
 hunter_add_package(ZLIB) 
 hunter_add_package(pthread-stubs)
 
-set(ENABLE_LIB_ONLY ON FORCE)
-set(ENABLE_ASIO_LIB ON FORCE)
-set(ENABLE_THIRD_PARY 1 )
-
 
 # See versioning rule:
 #  http://www.gnu.org/software/libtool/manual/html_node/Updating-version-info.html
