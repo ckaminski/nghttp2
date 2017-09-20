@@ -33,6 +33,7 @@ HunterGate(
 )
 project(nghttp2 VERSION 1.25.0)
 
+hunter_add_package(OpenSSL)
 hunter_add_package(Boost COMPONENTS system thread) 
 hunter_add_package(libxml2) 
 hunter_add_package(ZLIB) 
